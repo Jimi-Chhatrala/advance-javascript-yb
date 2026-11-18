@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let and Const variable</title>
+  </head>
+  <body>
+    <script>
+      // Example 1 ==========================================================
+      var x = 'Hello';
+      var x = 'World';
+      x = 'Universe';
+      console.log('x:', x);
+
+      let y = 'Hello';
+      // let y = 'World'; // Will throw error
+      y = 'Universe';
+      console.log('y:', y);
+
+      const z = 'Hello';
+      // const z = 'World'; // Will throw error
+      // z = 'Universe'; // Will throw error
+      console.log('z:', z);
+
+      // Example 2 ==========================================================
+      if (true) {
+        var a = 'A';
+        console.log('A in if block:', a);
+
+        let b = 'B';
+        console.log('B in if block:', b);
+
+        const c = 'C';
+        console.log('C in if block:', c);
+      }
+      console.log('A out if block:', a);
+      // console.log('B out if block:', b); // Will throw error
+      // console.log('C out if block:', c); // Will throw error
+
+      // Example 3 ==========================================================
+      for (var d = 0; d < 5; d++) {
+        document.write('d in loop: ' + d + '<br>');
+      }
+      console.log('d out loop:', d);
+
+      for (let e = 0; e < 5; e++) {
+        document.write('e in loop: ' + e + '<br>');
+      }
+      // console.log('e out loop:', e); // Will throw error
+
+      for (const f = 0; f < 5; f++) {
+        document.write('f in loop: ' + f + '<br>'); // Will throw error in second loop
+      }
+      console.log('f out loop:', f); // Will never execute
+    </script>
+  </body>
+</html>
