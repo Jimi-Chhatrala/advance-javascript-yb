@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrow functions</title>
+  </head>
+  <body>
+    <script>
+      let welcome = function (word) {
+        return `Hello ${word}`;
+      };
+      console.log(welcome('World'));
+
+      let greet = (word, year) => {
+        return `Hello ${word} - ${year}`;
+      };
+      console.log(greet('World', 2026));
+
+      let sayHi = (word, year) => `Hi ${word} - ${year}`;
+      console.log(sayHi('John', 25));
+      console.log('Type of sayHi:', typeof sayHi);
+
+      let greetEod = (name) => `Good night ${name}`;
+      console.log(greetEod('John'));
+    </script>
+  </body>
+</html>
