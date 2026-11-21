@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rest operator</title>
+  </head>
+  <body>
+    <script>
+      function sum(name, course, ...args) {
+        console.log(arguments);
+        console.log(args);
+
+        document.write(`${name} from ${course} with sum: `);
+
+        let sum = 0;
+        for (let index in args) {
+          sum += args[index];
+        }
+
+        document.write(sum + '<br>');
+      }
+      sum('John', 'BA', 10, 20);
+      sum('Doe', 'MBA', 10, 20, 30);
+    </script>
+  </body>
+</html>
