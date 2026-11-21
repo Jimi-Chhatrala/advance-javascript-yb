@@ -54,7 +54,18 @@
       console.log('arr11:', arr11);
 
       // Example 7
-      const obj1 = {};
+      const obj1 = {
+        name: 'John Doe',
+        course: 'MBA',
+      };
+      const obj2 = {
+        year: 2026,
+      };
+      const obj3 = {
+        ...obj1,
+        ...obj2,
+      };
+      console.log('obj3:', obj3);
     </script>
   </body>
 </html>
