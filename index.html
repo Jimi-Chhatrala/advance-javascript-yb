@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Oriented Programming</title>
+  </head>
+  <body>
+    <script>
+      class Hello {
+        constructor(username, age) {
+          // const year = 2025;
+          this.username = username;
+          this.age = age;
+          console.log('constructor called.');
+        }
+
+        hello() {
+          document.write(`Hello ${this.username}, your age is ${this.age}`);
+        }
+
+        message() {
+          console.log(`Hello Everyone, this is ${this.year} year.`);
+        }
+
+        sorry() {
+          console.log('Sorry Everyone');
+          console.log('this:', this);
+        }
+
+        static thisIsStaticMethod() {
+          console.log('This Is Static Method');
+        }
+      }
+
+      const a = new Hello('John Doe', 25);
+      a.year = 2026;
+      a.hello();
+      a.message();
+      a.sorry();
+      Hello.thisIsStaticMethod();
+    </script>
+  </body>
+</html>
