@@ -4,3 +4,4 @@
 # 3-arrow-functions
 # 4-rest-operator
 # 5-spread-operator
+# 6-object-literals

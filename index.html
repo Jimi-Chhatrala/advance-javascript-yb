@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Literals</title>
+  </head>
+  <body>
+    <script>
+      // Example 1
+      const name = 'John Doe';
+      const course = 'MBA';
+
+      const obj = {
+        name,
+        course,
+      };
+      console.log('obj:', obj);
+
+      // Example 2
+      const name2 = 'student';
+      const obj2 = {
+        [name2]: 'John Doe',
+        course: 'Btech',
+      };
+      console.log('obj2:', obj2);
+
+      // Example 3
+      const name3 = 'student';
+      const obj3 = {
+        [name3 + '_name']: 'John Doe',
+        course: 'Mtech',
+      };
+      console.log('obj3:', obj3);
+
+      // Example 4
+      const name4 = 'student';
+      const obj4 = {
+        [name4 + '_name']: 'John Doe',
+        course: 'Mtech',
+        detail: function () {
+          return `${this.student_name} is student of ${this.course}`;
+        },
+      };
+      console.log('obj4:', obj4);
+      console.log(obj4.detail());
+
+      // Example 5
+      const name5 = 'student';
+      const obj5 = {
+        [name5 + '_name']: 'John Doe',
+        course: 'Mtech',
+        detail() {
+          return `${this.student_name} is student of ${this.course}`;
+        },
+      };
+      console.log('obj5:', obj5);
+      console.log('obj5.detail():', obj5.detail());
+      console.log("obj5['detail']():", obj5['detail']());
+
+      // Example 6
+      const name6 = 'student';
+      const obj6 = {
+        [name6 + '_name']: 'John Doe',
+        course: 'Mtech',
+        'detail with space'() {
+          return `${this.student_name} is student of ${this.course}`;
+        },
+      };
+      console.log('obj6:', obj6);
+      console.log("obj6['detail with space']():", obj6['detail with space']());
+
+      // Example 7
+      const firstName = 'John';
+      const lastName = 'Doe';
+      const course7 = 'MCA';
+
+      function student(firstName, lastName, course7) {
+        const fullName = `${firstName} ${lastName}`;
+        return { fullName, course7 };
+      }
+
+      const s = student(firstName, lastName, course7);
+      console.log('s.fullName:', s.fullName);
+      console.log('s.course7:', s.course7);
+    </script>
+  </body>
+</html>
