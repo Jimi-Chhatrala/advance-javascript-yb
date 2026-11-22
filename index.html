@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring Array</title>
+  </head>
+  <body>
+    <script>
+      // Example 1
+      const user = ['John Doe', 25, 'Delhi', ['Male', 25000], 2026];
+      const unknownValue = 'Unknown value';
+
+      const [
+        name = unknownValue,
+        age = unknownValue,
+        city = unknownValue,
+        [gender = unknownValue, salary = unknownValue],
+        ...rest
+      ] = user;
+
+      console.log('name:', name);
+      console.log('age:', age);
+      console.log('city:', city);
+      console.log('gender:', gender);
+      console.log('salary:', salary);
+      console.log('rest:', rest);
+
+      // Example 2
+      function userData([name, age = unknownValue, city]) {
+        console.log('name:', name);
+        console.log('age:', age);
+        console.log('city:', city);
+      }
+      userData(['John Doe', 25, 'Mumbai']);
+
+      // Example 3
+      function userData2() {
+        return ['Hello World', 30, 'UK'];
+      }
+      const [name2, age2, city2] = userData2();
+      console.log('name2:', name2);
+      console.log('age2:', age2);
+      console.log('city2:', city2);
+    </script>
+  </body>
+</html>

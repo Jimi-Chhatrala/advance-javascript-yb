@@ -5,3 +5,4 @@
 # 4-rest-operator
 # 5-spread-operator
 # 6-object-literals
+# 7-destructuring-array
