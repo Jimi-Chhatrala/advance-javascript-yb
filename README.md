@@ -6,3 +6,4 @@
 # 5-spread-operator
 # 6-object-literals
 # 7-destructuring-array
+# 8-destructuring-object
