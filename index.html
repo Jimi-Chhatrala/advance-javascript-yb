@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring Object</title>
+  </head>
+  <body>
+    <script>
+      const user = {
+        username: 'John Doe',
+        age: 25,
+        city: 'Delhi',
+      };
+
+      const { username: u, age: a, city: c } = user;
+
+      // console.log('username:', username); // Throws error
+      console.log('u:', u);
+      // console.log('age:', age); // Throws error
+      console.log('a:', a);
+      // console.log('city:', city); // Throws error
+      console.log('c:', c);
+    </script>
+  </body>
+</html>
