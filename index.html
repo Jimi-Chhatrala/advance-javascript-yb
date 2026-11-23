@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Inheritance</title>
+  </head>
+  <body>
+    <script>
+      class Employee {
+        constructor(employeeName, employeeAge, employeeSalary) {
+          this.employeeName = employeeName;
+          this.employeeAge = employeeAge;
+          this.employeeSalary = employeeSalary;
+          console.log('Employee constructor called', employeeName);
+        }
+
+        info() {
+          console.log('Employee info method called', this.employeeName);
+          document.write(`
+          <h3>Employee Class</h3>
+          Name : ${this.employeeName} <br/>
+          Age : ${this.employeeAge} <br/>
+          Salary : ${this.employeeSalary} <br/>
+          `);
+        }
+      }
+
+      class Manager extends Employee {
+        // constructor(managerName) {
+        //   super(managerName);
+        //   console.log('Manager constructor called', managerName);
+        // }
+
+        info() {
+          const travelAllowance = 1000;
+          const petrolAllowance = 300;
+          const totalSalary = this.employeeSalary + travelAllowance + petrolAllowance;
+
+          console.log('Manager info method called', this.employeeName);
+          document.write(`
+          <h3>Manager Class</h3>
+          Name : ${this.employeeName} <br/>
+          Age : ${this.employeeAge} <br/>
+          Salary : ${totalSalary} <br/>
+          `);
+          // super.info();
+        }
+      }
+
+      class JuniorManager extends Manager {}
+
+      const a = new Manager('John Doe', 25, 25000);
+      a.info();
+
+      const b = new Employee('Alice Deno', 52, 52000);
+      b.info();
+
+      const c = new JuniorManager('Bob', 30, 36000);
+      c.info();
+    </script>
+  </body>
+</html>
