@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script>
+      // const isFulfilled = false;
+
+      // const promise =
+      // function promise(isFulfilled) {
+      function promise(num1, num2) {
+        return new Promise(function (resolve, reject) {
+          console.log('Fetching data, please wait...');
+          // const result = num1 / num2;
+          setTimeout(() => {
+            // if (num1, num2) {
+            //   resolve(`Promise fulfilled successfully: ${result}`);
+            // } else {
+            //   reject(`Promise failed. ${result}`);
+            // }
+            $.get('https://jsonplaceholder.typicode.com/posts', function (data) {
+              resolve(data);
+            }).fail((error) => {
+              reject('Failed to load data');
+            });
+          }, 2000);
+        });
+      }
+
+      // const onResolve = (result) => {
+      //   console.log(result);
+      // };
+
+      // const onReject = (error) => {
+      //   console.log(error);
+      // };
+
+      // promise(false).then(onResolve).catch(onReject);
+
+      // promise(5,0).then((result) => {
+      promise(5, 2)
+        .then((result) => {
+          console.log(result);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      // promise(false).then(onResolve);
+      // promise(false).catch(onReject);
+
+      // console.log(promise(false));
+
+      // Raw code
+      /*
+      if (1,2) console.log('1,2')
+      VM99:1 1,2
+      undefined
+      if (1,2,) console.log('1,2')
+      VM103:1 Uncaught SyntaxError: Unexpected token ')' (at VM103:1:9)
+      if (1,2,3) console.log('1,2')
+      VM107:1 1,2
+      undefined
+      if (,) console.log('1,2')
+      VM116:1 Uncaught SyntaxError: Unexpected token ',' (at VM116:1:5)
+      if (1,0) console.log('1,2')
+      undefined
+      if (1&&0) console.log('1,2')
+      undefined
+      if (1&&1) console.log('1,2')
+      VM132:1 1,2
+      undefined
+      if (0&&0) console.log('1,2')
+      undefined
+      if (0,1) console.log('1,2')
+      VM154:1 1,2
+      undefined
+      */
+    </script>
+  </body>
+</html>
