@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise All</title>
+  </head>
+  <body>
+    <script>
+      // const promise1 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     console.log('Promise 1 resolved');
+      //     resolve(1);
+      //   }, 1 * 1000);
+      // });
+
+      // const promise2 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     console.log('Promise 2 resolved');
+      //     // console.log('Promise 2 rejected');
+
+      //     resolve(2);
+      //     // reject('Failed');
+      //   }, 2 * 1000);
+      // });
+
+      // const promise3 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     console.log('Promise 3 resolved');
+      //     resolve(3);
+      //   }, 3 * 1000);
+      // });
+
+      const promiseToFullfill = (dataToReturn, messageToLog, isFulfilled) => {
+        return function (resolve, reject) {
+          setTimeout(() => {
+            if (isFulfilled) {
+              console.log(`The ${messageToLog} promise has resolved.`);
+              resolve(dataToReturn);
+            } else {
+              console.log(`The ${messageToLog} promise has rejected.`);
+              reject(dataToReturn);
+            }
+          }, dataToReturn * 100);
+        };
+      };
+
+      const promise4 = new Promise(promiseToFullfill(10, 'First', true));
+      const promise5 = new Promise(promiseToFullfill(20, 'Second', false));
+      const promise6 = new Promise(promiseToFullfill(30, 'Third', true));
+
+      let total = 0;
+      // Promise.all([promise1, promise2, promise3])
+      Promise.all([promise4, promise5, promise6])
+        .then((result) => {
+          for (const value in result) total += result[value];
+          console.log('Result:', result);
+          console.log('Total:', total);
+        })
+        .catch((error) => {
+          console.log('Error:', error);
+        });
+    </script>
+  </body>
+</html>
